@@ -113,19 +113,10 @@
 -- Use hard-coded foreign key IDs when necessary
 -- TODO!
 
--- Prints a header for the movies output
-.print "Movies"
-.print "======"
-.print ""
-
 -- The SQL statement for the movies output
 -- TODO!
 
--- Prints a header for the cast output
-.print ""
-.print "Top Cast"
-.print "========"
-.print ""
+
 
 
 -- The SQL statement for the cast output
@@ -167,6 +158,8 @@ CREATE TABLE ensemble (
 INSERT INTO studios (studio_name) VALUES ("Warner Bros.");
 
 --Data Insert for movies
+--Note you could quite reasonably break out year and MPAA rating into their own tables for
+--Additional functionality, but was not neccesary for use cases described
 INSERT INTO movies (title, year, MPAA_rating, studio_id) 
 VALUES
 ("Batman Begins", 2005, "PG-13", 1), 
@@ -216,6 +209,24 @@ VALUES
 (3, 11, 'Selina Kyle');
 
 
+
+
+-- Prints a header for the movies output
+.print "Movies"
+.print "======"
+.print ""
+
+--Select statement for movies
+SELECT movies.title, movies.year, movies.MPAA_rating, studios.studio_name
+FROM movies
+INNER JOIN studios ON movies.studio_id = studios.id;
+
+-- Prints a header for the cast output
+.print ""
+.print "Top Cast"
+.print "========"
+.print ""
+--Select statement for movie output
 SELECT movies.title, actors.actor_name, ensemble.role
 FROM ensemble
 INNER JOIN movies ON movies.id = ensemble.movie_id 
