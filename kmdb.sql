@@ -172,11 +172,48 @@ CREATE TABLE ensemble (
   role
 );
 
+
+--Statement for Studios
 INSERT INTO studios (studio_name) VALUES ("Warner Bros.");
+
+--Statement for Batman Begins 
 INSERT INTO ensemble (movie_id, actor_id, role)
-VALUES ('Batman Begins', 'Christian Bale', 'Bruce Wayne'),
+VALUES 
+('Batman Begins', 'Christian Bale', 'Bruce Wayne'),
 ('Batman Begins', 'Michael Caine', 'Alfred'),
 ('Batman Begins', 'Liam Neeson', 'Ras Al Ghul'),
 ('Batman Begins', 'Katie Holmes', 'Rachel Dawes'),
 ('Batman Begins', 'Gary Oldman', 'Commissioner Gordon');
 
+--Statement for the dark knight
+INSERT INTO ensemble (movie_id, actor_id, role) 
+VALUES
+('The Dark Knight', 'Christian Bale', 'Bruce Wayne'), 
+('The Dark Knight', 'Heath Ledger', 'Joker'), 
+('The Dark Knight', 'Aaron Eckhart', 'Harvey Dent'),
+('The Dark Knight', 'Michael Caine', 'Alfred'),
+('The Dark Knight', 'Maggie Gyllenhaal', 'Rachel Dawes');    
+
+--Statement for the dark knight rises
+INSERT INTO ensemble (movie_id, actor_id, role) 
+VALUES 
+('The Dark Knight Rises',  'Christian Bale', 'Bruce Wayne'),
+('The Dark Knight Rises', 'Gary Oldman', 'Commissioner Gordon'),
+('The Dark Knight Rises', 'Tom', 'Hardy Bane'),
+('The Dark Knight Rises', 'Joseph Gordon-Levitt', 'John Blake'),
+('The Dark Knight Rises', 'Anne Hathaway', 'Selina Kyle');
+
+--Insert Actors
+INSERT INTO actors (actor_id) 
+VALUES 
+("Christian Bale"),
+("Michael Caine"), 
+("Liam Neeson"), 
+("Katie Holmes"), 
+("Gary Oldman"), 
+("Heath Ledger"), 
+("Aaron Eckhart"), 
+("Maggie Gyllenhaal"), 
+("Tom Hardy"), 
+("Joseph Gordon-Levitt"), 
+("Anne Hathaway");
