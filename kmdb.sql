@@ -131,16 +131,6 @@
 -- The SQL statement for the cast output
 -- TODO!
 
--- - As a guest, I want to see a list of movies with the title, year released,
---   MPAA rating, and studio information.
--- - As a guest, I want to see the movies which a single studio has produced.
--- - As a guest, I want to see each movie's cast including each actor's
---   name and the name of the character they portray.
--- - As a guest, I want to see the movies which a single actor has acted in.
--- * Note: The "guest" user role represents the experience prior to logging-in
---   to an app and typically does not have a corresponding database table.
-
-
 
 DROP TABLE IF EXISTS studios;
 DROP TABLE IF EXISTS movies;
@@ -162,7 +152,7 @@ CREATE TABLE movies (
 
 CREATE TABLE actors (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  actor_id TEXT
+  actor_name TEXT
 );
 
 CREATE TABLE ensemble (
@@ -204,7 +194,7 @@ VALUES
 ('The Dark Knight Rises', 'Anne Hathaway', 'Selina Kyle');
 
 --Insert Actors
-INSERT INTO actors (actor_id) 
+INSERT INTO actors (actor_name) 
 VALUES 
 ("Christian Bale"),
 ("Michael Caine"), 
@@ -217,3 +207,12 @@ VALUES
 ("Tom Hardy"), 
 ("Joseph Gordon-Levitt"), 
 ("Anne Hathaway");
+
+
+--Statement for the dark knight
+INSERT INTO movies (title, year, MPAA_rating, studio_id) 
+VALUES
+("Batman Begins", 2005, "PG-13", "Warner Bros."), 
+("The Dark Knight", 2008, "PG-13",  "Warner Bros."), 
+("The Dark Knight Rises", 2012, "PG-13",  "Warner Bros.");
+
