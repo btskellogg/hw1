@@ -146,11 +146,12 @@ CREATE TABLE actors (
   actor_name TEXT
 );
 
+--Assumes only one actor plays a given role
 CREATE TABLE ensemble (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   movie_id integer,
   actor_id integer,
-  role
+  role TEXT
 );
 
 
@@ -208,9 +209,6 @@ VALUES
 (3, 10, 'John Blake'),
 (3, 11, 'Selina Kyle');
 
-
-
-
 -- Prints a header for the movies output
 .print "Movies"
 .print "======"
@@ -226,6 +224,7 @@ INNER JOIN studios ON movies.studio_id = studios.id;
 .print "Top Cast"
 .print "========"
 .print ""
+
 --Select statement for movie output
 SELECT movies.title, actors.actor_name, ensemble.role
 FROM ensemble
