@@ -146,7 +146,7 @@ CREATE TABLE movies (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   title TEXT,
   year INTEGER,
-  studio_id TEXT,
+  studio_id integer,
   MPAA_rating TEXT
 );
 
@@ -157,43 +157,23 @@ CREATE TABLE actors (
 
 CREATE TABLE ensemble (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  movie_id TEXT,
-  actor_id TEXT,
+  movie_id integer,
+  actor_id integer,
   role
 );
 
 
---Statement for Studios
+--Data Insert for Studios
 INSERT INTO studios (studio_name) VALUES ("Warner Bros.");
 
---Statement for Batman Begins 
-INSERT INTO ensemble (movie_id, actor_id, role)
-VALUES 
-('Batman Begins', 'Christian Bale', 'Bruce Wayne'),
-('Batman Begins', 'Michael Caine', 'Alfred'),
-('Batman Begins', 'Liam Neeson', 'Ras Al Ghul'),
-('Batman Begins', 'Katie Holmes', 'Rachel Dawes'),
-('Batman Begins', 'Gary Oldman', 'Commissioner Gordon');
-
---Statement for the dark knight
-INSERT INTO ensemble (movie_id, actor_id, role) 
+--Data Insert for movies
+INSERT INTO movies (title, year, MPAA_rating, studio_id) 
 VALUES
-('The Dark Knight', 'Christian Bale', 'Bruce Wayne'), 
-('The Dark Knight', 'Heath Ledger', 'Joker'), 
-('The Dark Knight', 'Aaron Eckhart', 'Harvey Dent'),
-('The Dark Knight', 'Michael Caine', 'Alfred'),
-('The Dark Knight', 'Maggie Gyllenhaal', 'Rachel Dawes');    
+("Batman Begins", 2005, "PG-13", 1), 
+("The Dark Knight", 2008, "PG-13",  1), 
+("The Dark Knight Rises", 2012, "PG-13", 1);
 
---Statement for the dark knight rises
-INSERT INTO ensemble (movie_id, actor_id, role) 
-VALUES 
-('The Dark Knight Rises',  'Christian Bale', 'Bruce Wayne'),
-('The Dark Knight Rises', 'Gary Oldman', 'Commissioner Gordon'),
-('The Dark Knight Rises', 'Tom', 'Hardy Bane'),
-('The Dark Knight Rises', 'Joseph Gordon-Levitt', 'John Blake'),
-('The Dark Knight Rises', 'Anne Hathaway', 'Selina Kyle');
-
---Insert Actors
+--Data Insert Actors
 INSERT INTO actors (actor_name) 
 VALUES 
 ("Christian Bale"),
@@ -208,11 +188,34 @@ VALUES
 ("Joseph Gordon-Levitt"), 
 ("Anne Hathaway");
 
+--Data Inset for Batman Begins  (ensemble)
+INSERT INTO ensemble (movie_id, actor_id, role)
+VALUES 
+(1, 1, 'Bruce Wayne'),
+(1, 2, 'Alfred'),
+(1, 3, 'Ras Al Ghul'),
+(1, 4, 'Rachel Dawes'),
+(1, 5, 'Commissioner Gordon');
 
---Statement for the dark knight
-INSERT INTO movies (title, year, MPAA_rating, studio_id) 
+--Data Insert for the dark knight (ensemble)
+INSERT INTO ensemble (movie_id, actor_id, role) 
 VALUES
-("Batman Begins", 2005, "PG-13", "Warner Bros."), 
-("The Dark Knight", 2008, "PG-13",  "Warner Bros."), 
-("The Dark Knight Rises", 2012, "PG-13",  "Warner Bros.");
+(2, 1, 'Bruce Wayne'), 
+(2, 6, 'Joker'), 
+(2, 7, 'Harvey Dent'),
+(2, 2, 'Alfred'),
+(2, 8, 'Rachel Dawes');    
+
+--Data for the dark knight rises (ensemble)
+INSERT INTO ensemble (movie_id, actor_id, role) 
+VALUES 
+(3,  1, 'Bruce Wayne'),
+(3, 5, 'Commissioner Gordon'),
+(3, 9, 'Bane'),
+(3, 10, 'John Blake'),
+(3, 11, 'Selina Kyle');
+
+
+
+
 
