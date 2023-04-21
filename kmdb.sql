@@ -216,6 +216,9 @@ VALUES
 (3, 11, 'Selina Kyle');
 
 
-
+SELECT movies.title, actors.actor_name, ensemble.role
+FROM ensemble
+INNER JOIN movies ON movies.id = ensemble.movie_id 
+INNER JOIN actors ON actors.id = ensemble.actor_id;
 
 
