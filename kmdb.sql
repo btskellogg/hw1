@@ -210,6 +210,7 @@ VALUES
 (3, 11, 'Selina Kyle');
 
 -- Prints a header for the movies output
+.print ""
 .print "Movies"
 .print "======"
 .print ""
@@ -231,4 +232,4 @@ FROM ensemble
 INNER JOIN movies ON movies.id = ensemble.movie_id 
 INNER JOIN actors ON actors.id = ensemble.actor_id;
 
-
+.print ""
