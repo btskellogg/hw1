@@ -128,11 +128,13 @@ DROP TABLE IF EXISTS movies;
 DROP TABLE IF EXISTS actors;
 DROP TABLE IF EXISTS ensemble;
 
+--Choose to keep studios seperate
 CREATE TABLE studios (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   studio_name TEXT
 );
 
+--include studio as 1 to many relationship
 CREATE TABLE movies (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   title TEXT,
@@ -147,6 +149,7 @@ CREATE TABLE actors (
 );
 
 --Assumes only one actor plays a given role
+--Th is where movies and actors are brought together (i.e. many to many rel.)
 CREATE TABLE ensemble (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   movie_id integer,
